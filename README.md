@@ -16,17 +16,17 @@ This is the environment you can use:
 
 - `DOMAINS` is a **comma separated list** of `domain_name:container[:port]` - e.g.
 `DOMAINS=foo.localhost:website1,bar.localhost:another:1234`
-- `SSL` if set to `true` (string) so nginx will listens on `443` and use (self generated or not) certificate and keys. (see the [basic ssl example](./examples/basic-ssl) for a preview)
+- `SSL` if set to `true` (string) so nginx will listens on `443` and use (self generated or not) certificate and keys. (see the [basic ssl example](https://github.com/metal3d/nginx-auto/examples/basic-ssl) for a preview)
 - `CERTS` is a **coma separated list** of `domain_name:certname:keyname` where:
     - `certname` is the filename **without direcotry**
     - `keyname` is the filename **without directory**
-    You'll need to mount your certificates inside `/etc/nginx/certs` (see [the basic SSL example with trusted certificates here](./examples/basic-ssl-trust) for a basic example)
+    You'll need to mount your certificates inside `/etc/nginx/certs` (see [the basic SSL example with trusted certificates here](https://github.com/metal3d/nginx-auto/examples/basic-ssl-trust) for a basic example)
 - `REDIRECT` if set to `true` (string) will force http to https redirection
 
 
 # Basic example
 
-You can see it in [the provided basic example](./examples/basic):
+You can see it in [the provided basic example](https://github.com/metal3d/nginx-auto/examples/basic):
 
 ```yaml
 version: "3"
@@ -55,7 +55,7 @@ If you have created your own certificates (e.g. with mkcert) in the form:
 - `./certs/foo.bar.key`
 - `./certs/foo.bar.pem`
 
-So, your `CERTS` variable should be: `blog.localhots:foo.bar.pem:foo.bar.key`
+So, your `CERTS` variable should be: `blog.localhots:foo.bar.pem:foo.bar.key` and you must mount `./certs` to `/etc/nginx/certs` (please, use `:z` suffix to make it working even on SELinux systems)
 
 # Work with podman?
 
