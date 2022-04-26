@@ -16,17 +16,17 @@ This is the environment you can use:
 
 - `DOMAINS` is a **comma separated list** of `domain_name:container[:port]` - e.g.
 `DOMAINS=foo.localhost:website1,bar.localhost:another:1234`
-- `SSL` if set to `true` (string) so nginx will listens on `443` and use (self generated or not) certificate and keys. (see the [basic ssl example](https://github.com/metal3d/nginx-auto/examples/basic-ssl) for a preview)
+- `SSL` if set to `true` (string) so nginx will listens on `443` and use (self generated or not) certificate and keys. (see the [basic ssl example](https://github.com/metal3d/nginx-auto/tree/main/examples/basic-ssl) for a preview)
 - `CERTS` is a **coma separated list** of `domain_name:certname:keyname` where:
     - `certname` is the filename **without direcotry**
     - `keyname` is the filename **without directory**
-    You'll need to mount your certificates inside `/etc/nginx/certs` (see [the basic SSL example with trusted certificates here](https://github.com/metal3d/nginx-auto/examples/basic-ssl-trust) for a basic example)
+    You'll need to mount your certificates inside `/etc/nginx/certs` (see [the basic SSL example with trusted certificates here](https://github.com/metal3d/nginx-auto/tree/main/examples/basic-ssl-trust) for a basic example)
 - `REDIRECT` if set to `true` (string) will force http to https redirection
 
 
 # Basic example
 
-You can see it in [the provided basic example](https://github.com/metal3d/nginx-auto/examples/basic):
+You can see it in [the provided basic example](https://github.com/metal3d/nginx-auto/tree/main/examples/basic):
 
 ```yaml
 version: "3"
