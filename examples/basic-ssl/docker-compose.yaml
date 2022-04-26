@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  blog:
+    image: ghost
+    environment:
+      url: https://blog.localhost
+
+  http:
+    image: metal3d/nginx-auto:1.16-alpine
+    environment:
+      DOMAINS: blog.localhost:blog:2368
+      SSL: "true"
+      REDIRECT: "true"
+    depends_on:
+      - blog
+    ports:
+      - 80:80
+      - 443:443
